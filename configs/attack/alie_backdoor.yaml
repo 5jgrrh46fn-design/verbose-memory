@@ -1,0 +1,30 @@
+# In-range backdoor ("A Little Is Enough", backdoor variant): constrain-and-scale
+# training, then every coordinate of the update is clipped into num_std
+# standard deviations around the benign mean. A single client estimates mean
+# and deviation from clean updates on reference_shards disjoint shards of its
+# own data.
+
+kind: backdoor
+
+poisoner:
+  _target_: topfed.attacks.data.backdoor.BackdoorPoisoner
+  target_class: 9
+  trigger_size: 6
+  trigger_amplitude: 1.0
+  batch_mode: augment
+  poisoning_rate: 0.5
+
+loss_augmenter:
+  _target_: topfed.attacks.model.constrain.ConstrainAndScaleAugmenter
+  alpha: 0.5
+
+update_manipulator:
+  _target_: topfed.attacks.model.statistical.InRangeBackdoorManipulator
+  num_std: 1.0
+  reference_shards: 4
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

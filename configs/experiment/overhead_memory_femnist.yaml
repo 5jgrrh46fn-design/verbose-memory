@@ -1,0 +1,23 @@
+# @package _global_
+# Server peak-memory block: the FEMNIST f=10% backdoor setting for 5 rounds with
+# memory profiling on. Tensor shapes are the same every round, so a few rounds
+# give the peak; host tracing slows the server, so these runs are kept apart
+# from the timing runs.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: overhead_memory_femnist
+
+federation:
+  num_rounds: 5
+  profile_memory: true
+
+attack:
+  assignment:
+    fraction: 0.10
+  poisoner:
+    trigger_amplitude: -5.0

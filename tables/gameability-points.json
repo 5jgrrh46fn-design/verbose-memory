@@ -1,0 +1,842 @@
+[
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "ScoreWeight",
+  "f": 10,
+  "delta": 17.4,
+  "top": 55.2,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "TemporalReputation",
+  "f": 10,
+  "delta": 15.6,
+  "top": 55.8,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "HardFilter",
+  "f": 10,
+  "delta": 20.4,
+  "top": 57.0,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "Quarantine",
+  "f": 10,
+  "delta": 8.5,
+  "top": 60.3,
+  "p": 0.0371,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "AdaptiveParticipation",
+  "f": 10,
+  "delta": 22.2,
+  "top": 57.7,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "Capped weighted median",
+  "f": 10,
+  "delta": -11.9,
+  "top": 54.1,
+  "p": 0.0039,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "ScoreWeight",
+  "f": 20,
+  "delta": 11.7,
+  "top": 59.4,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "TemporalReputation",
+  "f": 20,
+  "delta": 10.8,
+  "top": 59.6,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "HardFilter",
+  "f": 20,
+  "delta": 12.2,
+  "top": 61.4,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "Quarantine",
+  "f": 20,
+  "delta": 6.7,
+  "top": 59.8,
+  "p": 0.0039,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "AdaptiveParticipation",
+  "f": 20,
+  "delta": 15.5,
+  "top": 64.1,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "norm-bounded",
+  "integ": "Capped weighted median",
+  "f": 20,
+  "delta": -7.3,
+  "top": 50.2,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "ScoreWeight",
+  "f": 10,
+  "delta": 12.4,
+  "p": 0.0195,
+  "holm": 0.137,
+  "top": 34.3
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "ScoreWeight",
+  "f": 20,
+  "delta": 5.8,
+  "p": 0.0059,
+  "holm": 0.047,
+  "top": 35.4
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "TemporalReputation",
+  "f": 10,
+  "delta": 10.0,
+  "p": 0.0371,
+  "holm": 0.223,
+  "top": 34.2
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "TemporalReputation",
+  "f": 20,
+  "delta": 3.3,
+  "p": 0.0645,
+  "holm": 0.223,
+  "top": 35.6
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "HardFilter",
+  "f": 10,
+  "delta": 12.3,
+  "p": 0.0371,
+  "holm": 0.223,
+  "top": 32.7
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "HardFilter",
+  "f": 20,
+  "delta": 4.9,
+  "p": 0.0488,
+  "holm": 0.223,
+  "top": 37.0
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "Quarantine",
+  "f": 10,
+  "delta": 7.1,
+  "p": 0.1055,
+  "holm": 0.223,
+  "top": 32.0
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "Quarantine",
+  "f": 20,
+  "delta": 1.8,
+  "p": 0.1055,
+  "holm": 0.223,
+  "top": 35.0
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "AdaptiveParticipation",
+  "f": 10,
+  "delta": 39.8,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 54.1
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "AdaptiveParticipation",
+  "f": 20,
+  "delta": 18.0,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 54.2
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "Capped weighted median",
+  "f": 10,
+  "delta": -12.4,
+  "p": 0.0059,
+  "holm": null,
+  "top": 30.6
+ },
+ {
+  "score": "M4 alone",
+  "atk": "norm-bounded",
+  "integ": "Capped weighted median",
+  "f": 20,
+  "delta": -13.3,
+  "p": 0.002,
+  "holm": null,
+  "top": 22.6
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "ScoreWeight",
+  "f": 10,
+  "delta": -23.1,
+  "p": 0.002,
+  "holm": 0.027,
+  "top": 3.9
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "ScoreWeight",
+  "f": 20,
+  "delta": -0.1,
+  "p": 0.7695,
+  "holm": 1.0,
+  "top": 25.2
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "TemporalReputation",
+  "f": 10,
+  "delta": -29.8,
+  "p": 0.002,
+  "holm": 0.027,
+  "top": 2.0
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "TemporalReputation",
+  "f": 20,
+  "delta": -0.6,
+  "p": 0.1602,
+  "holm": 0.961,
+  "top": 22.4
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "HardFilter",
+  "f": 10,
+  "delta": 0.8,
+  "p": 0.7695,
+  "holm": 1.0,
+  "top": 6.0
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "HardFilter",
+  "f": 20,
+  "delta": -0.1,
+  "p": 1.0,
+  "holm": 1.0,
+  "top": 26.2
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "Quarantine",
+  "f": 10,
+  "delta": -6.0,
+  "p": 0.1309,
+  "holm": 0.916,
+  "top": 7.2
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "Quarantine",
+  "f": 20,
+  "delta": -4.5,
+  "p": 0.002,
+  "holm": 0.027,
+  "top": 14.3
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "AdaptiveParticipation",
+  "f": 10,
+  "delta": -58.7,
+  "p": 0.002,
+  "holm": 0.027,
+  "top": 0.7
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "AdaptiveParticipation",
+  "f": 20,
+  "delta": -21.8,
+  "p": 0.002,
+  "holm": 0.027,
+  "top": 6.6
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "Capped weighted median",
+  "f": 10,
+  "delta": -49.4,
+  "p": 0.002,
+  "holm": null,
+  "top": 6.1
+ },
+ {
+  "score": "server cosine",
+  "atk": "direction-aligned",
+  "integ": "Capped weighted median",
+  "f": 20,
+  "delta": -42.6,
+  "p": 0.002,
+  "holm": null,
+  "top": 4.7
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "ScoreWeight",
+  "f": 10,
+  "delta": -25.1,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "ScoreWeight",
+  "f": 20,
+  "delta": -64.1,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "TemporalReputation",
+  "f": 10,
+  "delta": -23.8,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "TemporalReputation",
+  "f": 20,
+  "delta": -59.7,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "HardFilter",
+  "f": 10,
+  "delta": -26.4,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "HardFilter",
+  "f": 20,
+  "delta": -65.7,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "Quarantine",
+  "f": 10,
+  "delta": -3.4,
+  "p": 0.4922,
+  "holm": 0.492,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "Quarantine",
+  "f": 20,
+  "delta": -6.9,
+  "p": 0.0098,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "AdaptiveParticipation",
+  "f": 10,
+  "delta": -28.9,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "AdaptiveParticipation",
+  "f": 20,
+  "delta": -62.5,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "Capped weighted median",
+  "f": 10,
+  "delta": -28.9,
+  "p": 0.002,
+  "holm": null,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "norm-bounded",
+  "integ": "Capped weighted median",
+  "f": 20,
+  "delta": -66.6,
+  "p": 0.002,
+  "holm": null,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "ScoreWeight",
+  "f": 10,
+  "delta": 0.5,
+  "p": 0.4922,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "ScoreWeight",
+  "f": 20,
+  "delta": 2.1,
+  "p": 0.4316,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "TemporalReputation",
+  "f": 10,
+  "delta": 0.7,
+  "p": 0.375,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "TemporalReputation",
+  "f": 20,
+  "delta": 2.4,
+  "p": 0.3223,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "HardFilter",
+  "f": 10,
+  "delta": 0.5,
+  "p": 0.3223,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "HardFilter",
+  "f": 20,
+  "delta": 2.3,
+  "p": 0.3223,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "Quarantine",
+  "f": 10,
+  "delta": 0.8,
+  "p": 0.2754,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "Quarantine",
+  "f": 20,
+  "delta": 1.5,
+  "p": 0.5566,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "AdaptiveParticipation",
+  "f": 10,
+  "delta": 0.7,
+  "p": 0.6953,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "AdaptiveParticipation",
+  "f": 20,
+  "delta": -0.5,
+  "p": 0.6953,
+  "holm": 1.0,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "Capped weighted median",
+  "f": 10,
+  "delta": -1.6,
+  "p": 0.1309,
+  "holm": null,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.9)",
+  "integ": "Capped weighted median",
+  "f": 20,
+  "delta": -7.8,
+  "p": 0.0137,
+  "holm": null,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "ScoreWeight",
+  "f": 10,
+  "delta": -12.9,
+  "p": 0.0098,
+  "holm": 0.039,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "ScoreWeight",
+  "f": 20,
+  "delta": -24.1,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "TemporalReputation",
+  "f": 10,
+  "delta": -12.0,
+  "p": 0.0098,
+  "holm": 0.039,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "TemporalReputation",
+  "f": 20,
+  "delta": -20.8,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "HardFilter",
+  "f": 10,
+  "delta": -15.4,
+  "p": 0.0039,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "HardFilter",
+  "f": 20,
+  "delta": -28.8,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "Quarantine",
+  "f": 10,
+  "delta": 0.8,
+  "p": 0.6953,
+  "holm": 0.75,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "Quarantine",
+  "f": 20,
+  "delta": 2.0,
+  "p": 0.375,
+  "holm": 0.75,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "AdaptiveParticipation",
+  "f": 10,
+  "delta": -17.9,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "AdaptiveParticipation",
+  "f": 20,
+  "delta": -40.9,
+  "p": 0.002,
+  "holm": 0.02,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "Capped weighted median",
+  "f": 10,
+  "delta": -22.1,
+  "p": 0.002,
+  "holm": null,
+  "top": 0.0
+ },
+ {
+  "score": "FoolsGold weight",
+  "atk": "composed (0.6, 0.5)",
+  "integ": "Capped weighted median",
+  "f": 20,
+  "delta": -52.4,
+  "p": 0.002,
+  "holm": null,
+  "top": 0.0
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "ScoreWeight",
+  "f": 10,
+  "delta": -66.7,
+  "top": 0.0,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "TemporalReputation",
+  "f": 10,
+  "delta": -59.1,
+  "top": 0.0,
+  "p": 0.0625,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "HardFilter",
+  "f": 10,
+  "delta": -74.1,
+  "top": 0.0,
+  "p": 0.0625,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "Quarantine",
+  "f": 10,
+  "delta": -31.4,
+  "top": 0.2,
+  "p": 0.0625,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "AdaptiveParticipation",
+  "f": 10,
+  "delta": -77.7,
+  "top": 0.0,
+  "p": 0.0625,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "Capped weighted median",
+  "f": 10,
+  "delta": -77.1,
+  "top": 0.0,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "ScoreWeight",
+  "f": 20,
+  "delta": -31.7,
+  "top": 1.0,
+  "p": 0.002,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "TemporalReputation",
+  "f": 20,
+  "delta": -20.0,
+  "top": 1.7,
+  "p": 0.0625,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "HardFilter",
+  "f": 20,
+  "delta": -69.3,
+  "top": 0.3,
+  "p": 0.0625,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "Quarantine",
+  "f": 20,
+  "delta": -6.5,
+  "top": 4.4,
+  "p": 0.3125,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "AdaptiveParticipation",
+  "f": 20,
+  "delta": -75.2,
+  "top": 0.0,
+  "p": 0.0625,
+  "holm": null
+ },
+ {
+  "score": "five metrics",
+  "atk": "standard backdoor",
+  "integ": "Capped weighted median",
+  "f": 20,
+  "delta": -73.0,
+  "top": 0.3,
+  "p": 0.002,
+  "holm": null
+ }
+]

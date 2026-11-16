@@ -1,0 +1,18 @@
+# @package _global_
+# Capped-weight coordinate median with a sixth TOPSIS criterion: pairwise
+# history agreement (cost). Each client's summed update history is compared
+# with every other selected client's; its largest cosine similarity enters the
+# decision matrix next to M1-M5, so a bloc that keeps pushing one direction
+# scores as less trustworthy. CRITIC weights all six columns per round;
+# CappedScoreWeight and the weighted median sit on top as in
+# topsis_capped_weighted_median.
+# Enable with: +experiment=<attack> +defense=topsis_agreement_capped_weighted_median
+defense:
+  scorer:
+    weighting: critic
+    pairwise_agreement: true
+  integrator:
+    _target_: topfed.integration.mechanisms.CappedScoreWeight
+    cap: 1.0
+    alpha: 1.0
+  base: weighted_median

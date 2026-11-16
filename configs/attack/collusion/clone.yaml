@@ -1,0 +1,4 @@
+# S1 clone: every co-selected colluder submits the round leader's base-attack
+# update (the Sybil upper bound on cross-client correlation).
+# Enable with: +attack/collusion=clone
+strategy: clone

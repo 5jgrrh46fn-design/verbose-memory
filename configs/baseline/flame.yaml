@@ -1,0 +1,14 @@
+# @package _global_
+# FLAME (Nguyen et al., USENIX Security 2022): HDBSCAN on the cosine distances
+# between client deltas with min_cluster_size = K/2 + 1 (one majority cluster,
+# everything else rejected), clip every admitted delta to the median delta
+# norm S_t, average the admitted deltas with equal weight, then add Gaussian
+# noise with sigma = noise_factor * S_t. noise_factor 0.001 is the paper's
+# value for image classification. Implementation follows the BackFed port;
+# see topfed.aggregation.flame for provenance.
+# Enable with: +experiment=<attack> +baseline=flame
+baseline:
+  name: flame
+  noise_factor: 0.001
+  # null -> K // 2 + 1, the paper's setting.
+  min_cluster_size: null

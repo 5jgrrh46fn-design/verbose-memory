@@ -1,0 +1,20 @@
+# @package _global_
+# Adaptive (defense-aware) backdoor on CIFAR-10, Dirichlet(alpha=0.5),
+# N=100 / K=10, f=10% compromised, with a 1-sample-per-class server validation
+# set (FLTrust's root set and the validation-loss metric's reference). The norm
+# budget stays at the attack config's value, calibrated at 100 per class.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: adaptive_backdoor
+
+experiment: adaptive_backdoor_cifar10_f10_root1
+
+dataset:
+  val_per_class: 1
+
+attack:
+  assignment:
+    fraction: 0.10

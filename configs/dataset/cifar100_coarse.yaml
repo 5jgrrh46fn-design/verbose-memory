@@ -1,0 +1,9 @@
+name: cifar100_coarse
+# CIFAR-100 relabelled with its 20 superclasses (2,500 training / 500 test
+# images each). Fallback for the fine-label variant when the small CNN's
+# accuracy ceiling is too low to read attack effects.
+num_classes: 20
+# 50 per superclass keeps the 1,000-image server validation slice.
+val_per_class: 50
+augment: true
+coarse: true

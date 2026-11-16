@@ -1,0 +1,19 @@
+# @package _global_
+# MESAS (Krauss and Dmitrienko, CCS 2023): six metrics per local model
+# against the global model (cosine distance, Euclidean distance, count of
+# increased parameters, variance, min and max absolute change), computed for
+# the whole model and per parameter array; each series is split around its
+# median and tested (Welch t, Levene, KS, 3-sigma); significant series are
+# clustered into two and the smaller cluster is pruned; repeat until nothing
+# is significant; equal-weight average of the survivors.
+# alpha 0.03 is the paper's significance level for inter-client non-IID data
+# (Dirichlet and natural partitions here); 0.001 intra-client, 0.0001 IID.
+# Implemented from the paper (no public code); see topfed.aggregation.mesas
+# for every choice the paper leaves open.
+# Enable with: +experiment=<attack> +baseline=mesas
+baseline:
+  name: mesas
+  alpha: 0.03
+  # Split point of each metric series: "median" (the paper's text) or "mean"
+  # (its Fig. 6 caption). See the module docstring for why it matters at K=10.
+  center: median

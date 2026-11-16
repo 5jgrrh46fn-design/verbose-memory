@@ -1,0 +1,20 @@
+# "A Little Is Enough" untargeted model poisoning: the attacker submits the
+# mean of the benign updates it can estimate, shifted by num_std standard
+# deviations per coordinate. A single client estimates both from clean
+# updates on reference_shards disjoint shards of its own data.
+
+kind: lie
+
+poisoner: null
+loss_augmenter: null
+
+update_manipulator:
+  _target_: topfed.attacks.model.statistical.LittleIsEnoughManipulator
+  num_std: 1.5
+  reference_shards: 4
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

@@ -1,0 +1,22 @@
+# @package _global_
+# Adaptive (defense-aware) backdoor on FEMNIST (natural per-writer partitions),
+# N=100 / K=10, f=10% compromised: the CIFAR adaptive recipe (constrain-and-
+# scale loss plus a fixed L2 budget on the delta) with FEMNIST's dark corner
+# trigger. The budget was calibrated on CIFAR-10 (0.6, about a third of the
+# benign median norm); FEMNIST deltas live on a different scale, so sweep
+# ``attack.update_manipulator.target_norm`` on one seed and pick the smallest
+# budget at which the undefended attack still implants.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: adaptive_backdoor
+
+experiment: femnist_adaptive_backdoor_f10
+
+attack:
+  assignment:
+    fraction: 0.10
+  poisoner:
+    trigger_amplitude: -5.0

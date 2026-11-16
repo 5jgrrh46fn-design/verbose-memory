@@ -1,0 +1,17 @@
+# @package _global_
+# Adaptive (defense-aware) backdoor on CIFAR-100, Dirichlet(alpha=0.5),
+# N=100 / K=10, f=20% compromised. Sweep seeds with
+# ``--multirun federation.seed=0,1,2,3,4``. The 20-superclass variant is the
+# dataset override ``dataset=cifar100_coarse``.
+
+defaults:
+  - override /dataset: cifar100
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: adaptive_backdoor
+
+experiment: adaptive_backdoor_cifar100_f20
+
+attack:
+  assignment:
+    fraction: 0.20

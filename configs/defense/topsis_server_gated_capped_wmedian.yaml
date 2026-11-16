@@ -1,0 +1,17 @@
+# @package _global_
+# Server-gated capped weighted median. Capped-weight coordinate median (TOPSIS
+# CRITIC trust shares, each capped at a fair share cap/n, on a weighted-median
+# base) with every client's weight multiplied by ReLU(cosine of its delta to
+# the server's own root-set delta). The gate lies in [0, 1], so it can only
+# down-weight; a round in which no client points along the server's direction
+# keeps the current global model. The server trains on its validation (root)
+# set every round, as FLTrust does.
+# Enable with: +experiment=<attack> +defense=topsis_server_gated_capped_wmedian
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.gated.ServerGatedCappedScoreWeight
+    cap: 1.0
+    alpha: 1.0
+  base: weighted_median

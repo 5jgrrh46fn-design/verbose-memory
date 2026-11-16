@@ -1,0 +1,50 @@
+# Composed adaptive backdoor: direction-aligned, then norm-bounded. The
+# attacker's response to a defense that checks both the direction to a clean
+# server-side reference and the magnitude/validation-loss profile.
+#
+#   * constrain-and-scale loss term -> keeps the local model close to the
+#     round-start global so the validation-loss delta stays in the benign band
+#     (the lever of the norm-bounded adaptive backdoor).
+#   * direction-aligned stage       -> points the delta along the attacker's own
+#     clean update at a fixed cosine, keeping only the backdoor component
+#     orthogonal to it (the lever of the direction-aligned backdoor).
+#   * norm-bounded stage            -> rescales the aligned delta to a fixed L2
+#     budget. Rescaling keeps the direction, so the submitted update has both
+#     the target cosine to the reference and the target norm.
+#
+# Both knobs are swept as the attacker's best response:
+#   attack.update_manipulator.manipulators.0.cosine_target (c)
+#   attack.update_manipulator.manipulators.1.target_norm   (gamma)
+# ``kind: backdoor`` so the ASR evaluator and trigger-aware test loader are
+# built exactly as for the other backdoors.
+
+kind: backdoor
+
+poisoner:
+  _target_: topfed.attacks.data.backdoor.BackdoorPoisoner
+  target_class: 9
+  trigger_size: 6
+  trigger_amplitude: 1.0
+  batch_mode: augment
+  poisoning_rate: 0.5
+
+loss_augmenter:
+  _target_: topfed.attacks.model.constrain.ConstrainAndScaleAugmenter
+  alpha: 0.5
+
+# ``_convert_: object`` hands the stages over as a plain list of manipulator
+# objects (the default would wrap the dataclass stage in an OmegaConf node).
+update_manipulator:
+  _target_: topfed.attacks.model.adaptive.ComposedManipulator
+  _convert_: object
+  manipulators:
+    - _target_: topfed.attacks.model.adaptive.DirectionAlignedManipulator
+      cosine_target: 0.9
+    - _target_: topfed.attacks.model.adaptive.NormBoundedManipulator
+      target_norm: 0.6
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

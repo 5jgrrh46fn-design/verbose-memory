@@ -1,0 +1,19 @@
+# Untargeted dirty-label data poisoning: malicious clients replace a
+# fraction of their training labels with uniformly-drawn alternative
+# classes. The assignment block is deterministic in (seed, fraction).
+
+kind: dirty_label
+
+poisoner:
+  _target_: topfed.attacks.data.dirty_label.DirtyLabelPoisoner
+  num_classes: 10
+  poisoning_rate: 1.0
+
+loss_augmenter: null
+update_manipulator: null
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

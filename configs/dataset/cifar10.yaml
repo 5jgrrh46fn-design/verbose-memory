@@ -1,0 +1,4 @@
+name: cifar10
+num_classes: 10
+val_per_class: 100
+augment: true

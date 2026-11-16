@@ -1,0 +1,15 @@
+# @package _global_
+# Clean-label (Label-Consistent backdoor) on CIFAR-10, Dirichlet(alpha=0.5),
+# N=100 / K=10, f=20% compromised.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: clean_label
+
+experiment: clean_label_cifar10_f20
+
+attack:
+  assignment:
+    fraction: 0.20

@@ -1,0 +1,8 @@
+name: cifar100
+# The 100 fine classes (500 training / 100 test images each).
+num_classes: 100
+# 10 per class gives a 1,000-image server validation slice, as CIFAR-10's
+# 100 per class does.
+val_per_class: 10
+augment: true
+coarse: false

@@ -1,0 +1,33 @@
+# @package _global_
+# BackdoorIndicator (Li and Dai, USENIX Security 2024). Before each round the
+# server plants an indicator task (OOD images with uniformly assigned labels)
+# into the global model and broadcasts that model; after the round, a client
+# whose returned model keeps any one class of the indicator task at or above
+# `threshold` percent accuracy is flagged and dropped; the rest are averaged.
+# Port of the official code (github.com/ybdai7/Backdoor-indicator-defense);
+# values below are its params_vanilla_Indicator.yaml defaults except `eta`
+# (the reference uses a 0.5 server step for every server; 1.0 here matches
+# the other rules in this repository) and `ood_samples`, which the reference
+# sets to 800 for CIFAR-10 and 2000 for EMNIST (null picks by dataset).
+# OOD source: CIFAR-100 for CIFAR-10, CIFAR-10 (grayscale, resized) for FEMNIST.
+# start_round: the reference injects only into a converged model (it resumes
+# 1,200 clean rounds). Rounds before start_round run plain FedAvg with no
+# injection or filtering; 1 injects from scratch.
+# retrain_epochs: the reference's 200 injection epochs, applied from round 1
+# to a model training from scratch, cut clean accuracy to 0.47 (0.70
+# undefended) on a one-seed CIFAR-10 probe; 10 kept it at 0.70 and still
+# dropped 93% of malicious updates, so 10 is the default here.
+# Enable with: +experiment=<attack> +baseline=backdoor_indicator
+baseline:
+  name: backdoor_indicator
+  threshold: 95.0
+  retrain_epochs: 10
+  lr: 0.005
+  momentum: 0.9
+  weight_decay: 0.0005
+  lr_gamma: 0.8
+  mu: 0.4
+  batch_size: 64
+  eta: 1.0
+  start_round: 1
+  ood_samples: null

@@ -1,0 +1,5 @@
+# S3 reference shift: the round leader carries a lone attacker's update; the
+# other colluders are decoys that submit the carrier's direction at the norm
+# of their own clean update, pulling the cohort mean toward the carrier.
+# Enable with: +attack/collusion=reference_shift
+strategy: reference_shift

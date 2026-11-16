@@ -1,0 +1,17 @@
+# @package _global_
+# Bagdasaryan-style backdoor on FEMNIST (natural per-writer partitions),
+# N=100 / K=10, f=20% compromised. Dark corner trigger (see femnist_backdoor_f10).
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: femnist_backdoor_f20
+
+attack:
+  assignment:
+    fraction: 0.20
+  poisoner:
+    trigger_amplitude: -5.0

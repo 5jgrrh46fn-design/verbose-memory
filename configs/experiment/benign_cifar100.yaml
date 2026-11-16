@@ -1,0 +1,11 @@
+# @package _global_
+# Benign baseline on CIFAR-100, Dirichlet(alpha=0.5), N=100 / K=10. The
+# 20-superclass variant is the dataset override ``dataset=cifar100_coarse``.
+
+defaults:
+  - override /dataset: cifar100
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: none
+
+experiment: benign_cifar100

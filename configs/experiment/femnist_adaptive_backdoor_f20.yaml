@@ -1,0 +1,18 @@
+# @package _global_
+# Adaptive (defense-aware) backdoor on FEMNIST (natural per-writer partitions),
+# N=100 / K=10, f=20% compromised. See femnist_adaptive_backdoor_f10 for the
+# budget note.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: adaptive_backdoor
+
+experiment: femnist_adaptive_backdoor_f20
+
+attack:
+  assignment:
+    fraction: 0.20
+  poisoner:
+    trigger_amplitude: -5.0

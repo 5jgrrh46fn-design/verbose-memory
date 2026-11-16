@@ -1,0 +1,17 @@
+# @package _global_
+# In-range (ALIE) backdoor on CIFAR-10, Dirichlet(alpha=0.5), N=100 / K=10,
+# f=20% compromised. Sweep seeds with ``--multirun federation.seed=0,1,2,3,4``.
+# Sweep the attacker's knob with
+# ``attack.update_manipulator.num_std=0.5,1.0,1.5``.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: alie_backdoor
+
+experiment: alie_backdoor_cifar10_f20
+
+attack:
+  assignment:
+    fraction: 0.20

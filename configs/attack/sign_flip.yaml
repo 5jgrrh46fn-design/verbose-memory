@@ -1,0 +1,20 @@
+# Sign-flipping model poisoning: invert the local delta about the global
+# anchor, optionally amplified by ``eta``. attack-budget sweep covers
+# eta ∈ {2.0, 5.0, 10.0}; the default below is sign-flip with no extra
+# scaling, matching the canonical sign-flipping attack in the FL poisoning
+# literature.
+
+kind: sign_flip
+
+poisoner: null
+loss_augmenter: null
+
+update_manipulator:
+  _target_: topfed.attacks.model.sign_flip.SignFlippingManipulator
+  eta: 1.0
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

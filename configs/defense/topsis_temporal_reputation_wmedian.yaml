@@ -1,0 +1,14 @@
+# @package _global_
+# EMA-smoothed reputation (TemporalReputation) as soft weights inside a
+# coordinate-wise weighted median. Reputation carries across rounds, so a
+# freshly sampled attacker bloc does not enter the median at equal share on
+# its first co-selection; tests whether carried weight closes the sampling
+# tail that captures a per-round weighted median.
+# Enable with: +experiment=<attack> +defense=topsis_temporal_reputation_wmedian
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.TemporalReputation
+    alpha: 0.5
+  base: weighted_median

@@ -1,0 +1,15 @@
+# @package _global_
+# Trust-gated coordinate median: TOPSIS (CRITIC) trust scores are used only to
+# EXCLUDE low-trust clients (hard threshold), and the survivors are combined by
+# a bounded-influence coordinate-wise median rather than a weighted mean. Trust
+# can suppress but never amplify a client, so a stealthy update the scorer
+# over-trusts cannot be up-weighted, and a single included client cannot move
+# the median. Enable with: +experiment=<attack> +defense=topsis_gated_median
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.HardFilter
+    threshold: 0.5
+    alpha: 1.0
+  base: median

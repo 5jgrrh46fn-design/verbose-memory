@@ -1,0 +1,29 @@
+# Min-Max backdoor: constrain-and-scale training, then the update is moved from
+# the benign mean along the backdoor direction as far as the Min-Max bound
+# allows (no farther from any benign update than benign updates are from each
+# other). A single client estimates the benign updates from clean training on
+# reference_shards disjoint shards of its own data.
+
+kind: backdoor
+
+poisoner:
+  _target_: topfed.attacks.data.backdoor.BackdoorPoisoner
+  target_class: 9
+  trigger_size: 6
+  trigger_amplitude: 1.0
+  batch_mode: augment
+  poisoning_rate: 0.5
+
+loss_augmenter:
+  _target_: topfed.attacks.model.constrain.ConstrainAndScaleAugmenter
+  alpha: 0.5
+
+update_manipulator:
+  _target_: topfed.attacks.model.statistical.MinMaxBackdoorManipulator
+  reference_shards: 4
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

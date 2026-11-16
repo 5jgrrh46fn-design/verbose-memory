@@ -1,0 +1,18 @@
+# @package _global_
+# Composed (direction-aligned then norm-bounded) adaptive backdoor on CIFAR-10,
+# Dirichlet(alpha=0.5), N=100 / K=10, f=10% compromised. Sweep seeds with
+# ``--multirun federation.seed=0,1,2,3,4`` and the attacker's knobs with
+# ``attack.update_manipulator.manipulators.0.cosine_target=0.5,0.9`` and
+# ``attack.update_manipulator.manipulators.1.target_norm=0.6,1.0``.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: composed_backdoor
+
+experiment: composed_backdoor_cifar10_f10
+
+attack:
+  assignment:
+    fraction: 0.10

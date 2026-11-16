@@ -1,0 +1,11 @@
+# @package _global_
+# Norm-clipped mean (Sun et al., "Can You Really Backdoor Federated Learning?",
+# 2019): every client delta is clipped to an L2 bound and the clipped deltas
+# are averaged with equal weight. No trust score, no filtering: the cheapest
+# magnitude bound, and the control for whether a bound on a mean already
+# suffices. bound null = the round's median delta norm (adaptive, as FLAME's
+# clipping stage uses); a number fixes the bound.
+# Enable with: +experiment=<attack> +baseline=clipped_mean
+baseline:
+  name: clipped_mean
+  bound: null

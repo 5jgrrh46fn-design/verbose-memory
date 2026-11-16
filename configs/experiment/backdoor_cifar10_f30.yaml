@@ -1,0 +1,17 @@
+# @package _global_
+# Backdoor on CIFAR-10, Dirichlet(alpha=0.5), N=100 / K=10, f=30% compromised.
+# Compromise-rate sweep level; run with a +tag= so its runs never share a
+# results label with another cell. Sweep seeds with
+# ``--multirun federation.seed=0,1,2,3,4``.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: backdoor_cifar10_f30
+
+attack:
+  assignment:
+    fraction: 0.30

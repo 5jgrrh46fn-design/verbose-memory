@@ -1,0 +1,20 @@
+# @package _global_
+# Diagnostic run:
+# at f = 50% compromise with the full Bagdasaryan-style scaling, the
+# backdoor ASR should exceed 0.85. If it does, the f10 underperformance
+# is a calibration issue (trigger / alpha / poisoning-rate tuning); if
+# it does not, the implementation has a deeper bug.
+#
+# Not part of the standard reporting sweep — this is one ablation seed.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: backdoor_cifar10_f50_diagnostic
+
+attack:
+  assignment:
+    fraction: 0.50

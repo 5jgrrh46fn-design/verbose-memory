@@ -1,0 +1,19 @@
+# @package _global_
+# Capped-weight coordinate median: the combination of the two levers that each
+# half-worked. TOPSIS (CRITIC) trust scores weight a coordinate-wise weighted
+# median (bounded base, full cohort), but each client's share is capped at a
+# fair share (cap/n) before renormalisation, so a high score buys no more weight
+# than any other capped client gets. A detectable attacker is down-weighted
+# (non-adaptive suppression); a stealthy over-trusted attacker gets the same
+# weight as the other capped clients. The cap is on the share before
+# renormalisation: the final weights of the capped clients exceed cap/n by the
+# mass removed from the down-weighted ones.
+# Enable with: +experiment=<attack> +defense=topsis_capped_weighted_median
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.CappedScoreWeight
+    cap: 1.0
+    alpha: 1.0
+  base: weighted_median

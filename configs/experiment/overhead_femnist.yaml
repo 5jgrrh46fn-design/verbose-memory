@@ -1,0 +1,22 @@
+# @package _global_
+# Server-overhead block: the FEMNIST f=10% backdoor setting cut to 50 rounds.
+# Per-round server cost does not depend on the round count, so the short run
+# only serves the per-round timing columns. Run one process on the device at a
+# time so the timings are not shared with other work.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: overhead_femnist
+
+federation:
+  num_rounds: 50
+
+attack:
+  assignment:
+    fraction: 0.10
+  poisoner:
+    trigger_amplitude: -5.0

@@ -1,0 +1,8 @@
+# @package _global_
+# FLTrust (Cao et al. 2021). The server trains on a small clean root set (the
+# validation set) each round and uses its own update as the trusted reference
+# direction; each client is trusted by ReLU(cosine to the server update) and its
+# magnitude is normalized to the server's, then trust-weighted-averaged.
+# Enable with: +experiment=<attack> +baseline=fltrust
+baseline:
+  name: fltrust

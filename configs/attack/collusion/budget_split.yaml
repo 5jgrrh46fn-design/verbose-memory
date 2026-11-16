@@ -1,0 +1,5 @@
+# S2 budget split: every colluder submits a lone attacker's update divided by
+# the bloc size m. Under the round-aware model replacement (gamma = K/m) this
+# is the same update as S1; it differs only under a fixed norm budget.
+# Enable with: +attack/collusion=budget_split
+strategy: budget_split

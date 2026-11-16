@@ -1,0 +1,5 @@
+# @package _global_
+# Coordinate-wise median robust-aggregation baseline (no trust scoring).
+# Enable with: +experiment=<attack> +baseline=coordinate_median
+baseline:
+  name: coordinate_median

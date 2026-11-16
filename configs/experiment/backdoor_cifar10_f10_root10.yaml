@@ -1,0 +1,21 @@
+# @package _global_
+# Backdoor on CIFAR-10, Dirichlet(alpha=0.5), N=100 / K=10, f=10% compromised,
+# with a 10-sample-per-class server validation set. That set is both FLTrust's
+# root set and the validation-loss metric's reference, so shrinking it probes
+# how much each defense rests on server-held clean data. Pair with
+# ``+baseline=fltrust`` or ``+defense=topsis_capped_weighted_median``.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: backdoor_cifar10_f10_root10
+
+dataset:
+  val_per_class: 10
+
+attack:
+  assignment:
+    fraction: 0.10

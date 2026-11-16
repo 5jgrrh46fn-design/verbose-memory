@@ -1,0 +1,10 @@
+# @package _global_
+# TOPSIS (CRITIC weighting) trust scores feeding hard-threshold filtering.
+# Enable with: +experiment=<attack> +defense=topsis_hard_filter
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.HardFilter
+    threshold: 0.5
+    alpha: 1.0

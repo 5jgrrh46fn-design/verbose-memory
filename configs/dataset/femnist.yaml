@@ -1,0 +1,7 @@
+name: femnist
+num_classes: 62
+# Server clean-validation slice: up to this many held-out samples per class.
+val_per_class: 30
+# Natural per-writer partitions; the CIFAR-style 32x32 crop/flip does not
+# apply to 28x28 grayscale, so augmentation is off.
+augment: false

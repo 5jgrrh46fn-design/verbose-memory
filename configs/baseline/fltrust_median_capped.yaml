@@ -1,0 +1,10 @@
+# @package _global_
+# FLTrust's trust and normalisation on a weighted-median base, with each
+# client's trust share ceiled at cap / K (cap 1.0 = an equal share) and the
+# vector renormalised before the median, as the capped peer-metric rule does.
+# Without the cap (fltrust_median) a single fully trusted client can hold a
+# weight majority in a round when the others score low.
+# Enable with: +experiment=<attack> +baseline=fltrust_median_capped
+baseline:
+  name: fltrust_median_capped
+  cap: 1.0

@@ -1,0 +1,9 @@
+# @package _global_
+# Krum robust-aggregation baseline (no trust scoring).
+# Enable with: +experiment=<attack> +baseline=krum
+# num_byzantine=2 covers up to two compromised clients per round of K=10
+# (n - num_byzantine - 2 = 6 neighbours), valid for both f10 and f20.
+baseline:
+  name: krum
+  num_byzantine: 2
+  num_selected: 1

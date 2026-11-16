@@ -1,0 +1,13 @@
+_target_: topfed.core.types.FederationConfig
+num_clients: 100
+clients_per_round: 10
+num_rounds: 200
+local_epochs: 5
+local_batch_size: 64
+local_learning_rate: 0.01
+local_momentum: 0.9
+seed: 0
+# Set patience > 0 to enable plateau-based early stopping on the named
+# evaluator metric. Disabled by default to keep per-seed compute fixed.
+early_stop_patience: 0
+early_stop_metric: val_accuracy

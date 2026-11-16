@@ -1,0 +1,9 @@
+# @package _global_
+# FoolsGold (Fung, Yoon and Beschastnikh, RAID 2020). Keeps each client's
+# summed update history, down-weights clients whose histories are
+# cosine-similar to another's (with pardoning and a logit, confidence kappa),
+# and takes the alpha-weighted mean of the round's deltas.
+# Enable with: +experiment=<attack> +baseline=foolsgold
+baseline:
+  name: foolsgold
+  kappa: 1.0

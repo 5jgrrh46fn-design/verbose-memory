@@ -1,0 +1,16 @@
+/data/
+/results
+/reconstruction
+/views/
+/outputs/
+/multirun/
+/.venv/
+/downloads/
+.pytest_cache/
+.mypy_cache/
+__pycache__/
+*.pt
+*.pyc
+*.pkl
+*.tar.zst
+.DS_Store

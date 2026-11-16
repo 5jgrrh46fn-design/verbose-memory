@@ -1,0 +1,20 @@
+# @package _global_
+# Backdoor f=10% ablation: literature-aligned (augmented batches per
+# Bagdasaryan) + trigger bumped to 5x5. Goal:
+# push the converged f=10% ASR into the 0.75-0.85 band that the
+# diagnostic showed is reachable at f=50%.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: ablation_backdoor_aug_t5_f10
+
+attack:
+  poisoner:
+    trigger_size: 5
+    batch_mode: augment
+  assignment:
+    fraction: 0.10

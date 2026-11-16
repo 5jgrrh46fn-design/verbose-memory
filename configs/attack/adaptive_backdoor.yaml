@@ -1,0 +1,50 @@
+# Defense-aware (adaptive) backdoor. Same Bagdasaryan augmented-batch trigger
+# as the standard backdoor, but the delivery is crafted to look benign to the
+# trust metrics rather than to overpower the average:
+#
+#   * constrain-and-scale loss term  -> keeps the local model close to the
+#     round-start global, so the update preserves clean accuracy (low
+#     validation-loss delta) and stays directionally aligned with the cohort.
+#   * norm-bounded manipulator       -> rescales the finished delta to the
+#     benign update-norm scale instead of boosting it, so the update's
+#     magnitude and per-tensor deviation sit inside the honest range.
+#
+# Together these target every magnitude/peer-relative signal at once; the open
+# question this attack probes is whether the server-anchored validation-loss
+# signal alone still separates it from benign. ``kind: backdoor`` so the ASR
+# evaluator and trigger-aware test loader are built exactly as for the
+# non-adaptive backdoor.
+
+kind: backdoor
+
+poisoner:
+  _target_: topfed.attacks.data.backdoor.BackdoorPoisoner
+  target_class: 9
+  trigger_size: 6
+  trigger_amplitude: 1.0
+  batch_mode: augment
+  poisoning_rate: 0.5
+
+loss_augmenter:
+  _target_: topfed.attacks.model.constrain.ConstrainAndScaleAugmenter
+  alpha: 0.5
+
+# No gamma boosting: the delta is rescaled to a fixed L2 budget, white-box
+# best-response-calibrated against the deployed defense (not set to the benign
+# norm). Calibration finding on this CIFAR-10 setup: the validation-loss-delta
+# metric grows super-linearly with the budget. A budget of ~0.6 (about a third
+# of the converged benign median norm ~2.0) maximises the defended attack
+# success rate: there the malicious update's loss-delta sits inside the benign
+# band, so its per-round trust score lands at or above the cohort median and
+# every integration mechanism leaves it essentially un-down-weighted, while the
+# trigger still implants over the run. Smaller budgets fail to implant; larger
+# budgets push the loss-delta out of the benign band and get down-weighted.
+update_manipulator:
+  _target_: topfed.attacks.model.adaptive.NormBoundedManipulator
+  target_norm: 0.6
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

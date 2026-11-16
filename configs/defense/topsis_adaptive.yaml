@@ -1,0 +1,9 @@
+# @package _global_
+# TOPSIS (CRITIC weighting) trust scores feeding adaptive participation control
+# (next-round sampling bias). Enable with: +experiment=<attack> +defense=topsis_adaptive
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.AdaptiveParticipation
+    alpha: 1.0

@@ -1,0 +1,16 @@
+# @package _global_
+# M4-band gated capped weighted median, the control for the server-gated
+# variant. Same capped-weight coordinate median, but each client's weight is
+# multiplied by 1[M4_i <= q], with q the 75th percentile of the round's
+# validation-loss deltas across the cohort. No data beyond the validation
+# slice the scorer already reads, and no server-side training.
+# Enable with: +experiment=<attack> +defense=topsis_m4band_capped_wmedian
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.gated.M4BandCappedScoreWeight
+    cap: 1.0
+    alpha: 1.0
+    quantile: 0.75
+  base: weighted_median

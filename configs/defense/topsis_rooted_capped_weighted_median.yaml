@@ -1,0 +1,17 @@
+# @package _global_
+# Capped weighted median with a server-rooted sixth TOPSIS criterion. The
+# decision matrix gains the cosine of each client's delta to the server's own
+# root-set delta as a benefit column (M1-M5 unchanged), CRITIC weights all six
+# per round, and the capped-weight coordinate median sits on top. Tests
+# whether the framework absorbs the server signal or the weighting dilutes it.
+# The server trains on its validation (root) set every round, as FLTrust does.
+# Enable with: +experiment=<attack> +defense=topsis_rooted_capped_weighted_median
+defense:
+  scorer:
+    weighting: critic
+    server_cosine: true
+  integrator:
+    _target_: topfed.integration.mechanisms.CappedScoreWeight
+    cap: 1.0
+    alpha: 1.0
+  base: weighted_median

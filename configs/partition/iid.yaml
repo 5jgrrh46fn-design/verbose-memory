@@ -1,0 +1,5 @@
+kind: iid
+# Seeded shuffle into equal shards; the heterogeneity-free control for the
+# Dirichlet alpha dial. Distinct from federation.seed so the partition is
+# stable across training seeds.
+seed: 0

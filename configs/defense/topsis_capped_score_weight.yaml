@@ -1,0 +1,13 @@
+# @package _global_
+# TOPSIS (CRITIC weighting) trust scores feeding score-weighted aggregation with
+# a per-client influence ceiling. Preserves down-weighting of low-trust clients
+# but caps how much a high-trust client can be up-weighted, so a stealthy update
+# the scorer over-trusts cannot be amplified above an honest client's share.
+# Enable with: +experiment=<attack> +defense=topsis_capped_score_weight
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.CappedScoreWeight
+    cap: 1.0
+    alpha: 1.0

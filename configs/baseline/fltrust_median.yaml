@@ -1,0 +1,9 @@
+# @package _global_
+# FLTrust with a weighted-median base. The server trains on its validation
+# (root) set each round; each client is trusted by ReLU(cosine to the server
+# update) and its delta is rescaled to the server update's norm, as in FLTrust,
+# but the rescaled deltas are combined by a per-coordinate trust-weighted
+# median instead of a trust-weighted mean.
+# Enable with: +experiment=<attack> +baseline=fltrust_median
+baseline:
+  name: fltrust_median

@@ -1,0 +1,5 @@
+kind: dirichlet
+alpha: 0.5
+# Distinct from federation.seed so the partition is stable across training
+# seeds within a config. Override on the CLI to study partition variance.
+seed: 0

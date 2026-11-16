@@ -1,0 +1,23 @@
+# @package _global_
+# Colluding-attacker grid, vanilla backdoor: CIFAR-10, Dirichlet(alpha=0.5),
+# N=100 / K=10, f=30% compromised, exactly m attackers in every round's cohort
+# (forced co-selection), capture trace on. m defaults to 1; set it with
+# ``federation.force_malicious_per_round=m`` and the collusion strategy with
+# ``+attack/collusion=<clone|budget_split|reference_shift|coordinate_capture>``
+# (absent = independent attackers). Run with a +tag=.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: collusion_backdoor_cifar10_f30
+
+federation:
+  force_malicious_per_round: 1
+  trace_capture: true
+
+attack:
+  assignment:
+    fraction: 0.30

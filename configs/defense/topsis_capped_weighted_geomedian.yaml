@@ -1,0 +1,15 @@
+# @package _global_
+# Capped trust weights (TOPSIS score, CRITIC weighting) inside a weighted
+# geometric median: the same weights as topsis_capped_weighted_median, with
+# the smoothed Weiszfeld estimator in place of the coordinate-wise median.
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.CappedScoreWeight
+    cap: 1.0
+    alpha: 1.0
+  base: geometric_median
+  geometric_median:
+    nu: 1.0e-6
+    max_iter: 10

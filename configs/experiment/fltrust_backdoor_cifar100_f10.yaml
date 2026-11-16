@@ -1,0 +1,17 @@
+# @package _global_
+# Direction-aligned (server-rooted-trust-aware) backdoor on CIFAR-100,
+# Dirichlet(alpha=0.5), N=100 / K=10, f=10% compromised. Sweep the
+# attacker's knob with
+# ``attack.update_manipulator.cosine_target=0.5,0.7,0.9,0.95``.
+
+defaults:
+  - override /dataset: cifar100
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: fltrust_backdoor
+
+experiment: fltrust_backdoor_cifar100_f10
+
+attack:
+  assignment:
+    fraction: 0.10

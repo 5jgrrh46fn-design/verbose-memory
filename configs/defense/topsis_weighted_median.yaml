@@ -1,0 +1,15 @@
+# @package _global_
+# Trust-weighted coordinate median: TOPSIS (CRITIC) trust scores become soft
+# per-client weights inside a coordinate-wise weighted median. Every client is
+# retained (no exclusion, no cohort shrinkage), so a low-trust client is pulled
+# away from but a single over-trusted client cannot move the median by an
+# extreme value without holding a weight majority. Combines the median's
+# bounded influence with trust-based down-weighting, without an exclusion step
+# to exploit. Enable with: +experiment=<attack> +defense=topsis_weighted_median
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.ScoreWeight
+    alpha: 1.0
+  base: weighted_median

@@ -1,0 +1,18 @@
+# @package _global_
+# Larger-trigger fallback: augmented batches + 6x6 trigger. Run only
+# if t5+augment hasn't pushed ASR into the 0.75-0.85 band.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: ablation_backdoor_aug_t6_f10
+
+attack:
+  poisoner:
+    trigger_size: 6
+    batch_mode: augment
+  assignment:
+    fraction: 0.10

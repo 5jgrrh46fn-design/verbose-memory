@@ -1,0 +1,40 @@
+# Bagdasaryan-style pixel-pattern backdoor with constrain-and-scale model
+# replacement. The assignment block is deterministic in (seed, fraction).
+
+kind: backdoor
+
+poisoner:
+  _target_: topfed.attacks.data.backdoor.BackdoorPoisoner
+  target_class: 9
+  # 6x6 trigger sits in the standard CIFAR-10 backdoor range (5-8 px in
+  # most published recipes). 4x4 (the prior canonical) was empirically
+  # below the band at f=10%; 6x6 lands the converged ASR squarely
+  # inside the 0.75-0.85 band while preserving clean accuracy.
+  trigger_size: 6
+  trigger_amplitude: 1.0
+  # Augmented batches per Bagdasaryan: each batch is duplicated and the
+  # second half is fully triggered + relabelled. Preserves the local
+  # model's clean accuracy, which is what makes the scaled-replacement
+  # update transfer a high-ASR-and-high-clean-acc global model rather
+  # than degenerate into denial-of-service. ``poisoning_rate`` is
+  # ignored in this mode but kept here for reference.
+  batch_mode: augment
+  poisoning_rate: 0.5
+
+loss_augmenter:
+  _target_: topfed.attacks.model.constrain.ConstrainAndScaleAugmenter
+  alpha: 0.5
+
+# gamma is left unset (null) on purpose: the runner rebuilds this
+# manipulator with the round-aware scaling factor gamma_t = K / f_t,
+# where K = clients_per_round and f_t is the number of adversaries
+# actually selected this round.
+update_manipulator:
+  _target_: topfed.attacks.model.scale.ModelReplacementManipulator
+  gamma: null
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

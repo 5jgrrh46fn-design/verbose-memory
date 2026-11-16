@@ -1,0 +1,30 @@
+{
+ "campaign": "local",
+ "prefix": "fin_k_",
+ "knobs": {
+  "P3_NB_PEER_F10": "0.6",
+  "P3_NB_ROOT_F10": "0.6",
+  "P3_NB_MEDIAN_F10": "2.0",
+  "P3_NB_FLTRUST_F10": "0.6",
+  "P3_NB_PEER_F20": "0.6",
+  "P3_NB_ROOT_F20": "0.6",
+  "P3_NB_MEDIAN_F20": "1.5",
+  "P3_NB_FLTRUST_F20": "1.5",
+  "P3_DA_PEER_F10": "0.5",
+  "P3_DA_ROOT_F10": "0.95",
+  "P3_DA_MEDIAN_F10": "0.5",
+  "P3_DA_FLTRUST_F10": "0.9",
+  "P3_DA_PEER_F20": "0.5",
+  "P3_DA_ROOT_F20": "0.9",
+  "P3_DA_MEDIAN_F20": "0.5",
+  "P3_DA_FLTRUST_F20": "0.9",
+  "P3_COMP_PEER_F10": "0.6,0.5",
+  "P3_COMP_ROOT_F10": "0.6,0.9",
+  "P3_COMP_MEDIAN_F10": "1.0,0.5",
+  "P3_COMP_FLTRUST_F10": "0.6,0.5",
+  "P3_COMP_PEER_F20": "0.6,0.5",
+  "P3_COMP_ROOT_F20": "0.6,0.9",
+  "P3_COMP_MEDIAN_F20": "1.0,0.5",
+  "P3_COMP_FLTRUST_F20": "0.6,0.9"
+ }
+}

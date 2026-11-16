@@ -1,0 +1,13 @@
+# @package _global_
+# Diagnostic, not a defense: ground-truth exclusion. Known attackers get
+# weight 0 and the rest are averaged equally (mean base). TOPSIS scores are
+# still computed and logged to the ledger for comparison, but never used.
+# Isolates the aggregation rule from detection: if the attack still succeeds
+# under perfect detection, the base itself is the limit.
+# Enable with: +experiment=<attack> +defense=oracle_filter
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.oracle.OracleFilter
+  base: mean

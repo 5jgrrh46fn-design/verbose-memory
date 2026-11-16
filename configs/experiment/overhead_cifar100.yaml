@@ -1,0 +1,21 @@
+# @package _global_
+# Server-overhead block: the CIFAR-100 f=10% backdoor setting cut to 50 rounds.
+# Per-round server cost does not depend on the round count, so the short run
+# only serves the per-round timing columns; its accuracy and attack success are
+# not comparable with the 200-round cells. Run one process on the device at a
+# time so the timings are not shared with other work.
+
+defaults:
+  - override /dataset: cifar100
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: overhead_cifar100
+
+federation:
+  num_rounds: 50
+
+attack:
+  assignment:
+    fraction: 0.10

@@ -1,0 +1,11 @@
+# @package _global_
+# TOPSIS (CRITIC weighting) trust scores feeding temporary quarantine.
+# Enable with: +experiment=<attack> +defense=topsis_quarantine
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.Quarantine
+    threshold: 0.5
+    quarantine_limit: 3
+    alpha: 1.0

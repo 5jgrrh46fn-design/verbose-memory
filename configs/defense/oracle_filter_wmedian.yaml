@@ -1,0 +1,13 @@
+# @package _global_
+# Diagnostic, not a defense: ground-truth exclusion on the weighted-median
+# base. Known attackers get weight 0 inside the coordinate-wise weighted
+# median, honest clients equal weight. Pairs with topsis_capped_weighted_median:
+# if this cell holds where capped-wmed fails, detection is the limit; if this
+# cell fails too, the median base is captured regardless of detection.
+# Enable with: +experiment=<attack> +defense=oracle_filter_wmedian
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.oracle.OracleFilter
+  base: weighted_median

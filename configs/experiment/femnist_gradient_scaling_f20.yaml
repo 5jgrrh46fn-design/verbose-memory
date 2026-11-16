@@ -1,0 +1,15 @@
+# @package _global_
+# Gradient-scaling model poisoning on FEMNIST (natural per-writer partitions),
+# N=100 / K=10, f=20% compromised.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: gradient_scaling
+
+experiment: femnist_gradient_scaling_f20
+
+attack:
+  assignment:
+    fraction: 0.20

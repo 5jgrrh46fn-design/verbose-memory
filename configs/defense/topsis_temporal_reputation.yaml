@@ -1,0 +1,9 @@
+# @package _global_
+# TOPSIS (CRITIC weighting) trust scores feeding EMA-smoothed reputation
+# weighting. Enable with: +experiment=<attack> +defense=topsis_temporal_reputation
+defense:
+  scorer:
+    weighting: critic
+  integrator:
+    _target_: topfed.integration.mechanisms.TemporalReputation
+    alpha: 0.5

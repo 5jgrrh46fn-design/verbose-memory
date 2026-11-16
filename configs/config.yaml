@@ -1,0 +1,31 @@
+# Top-level config. Experiment-specific configs in ``configs/experiment/``
+# pin a coherent attack/dataset/partition combination; select one with
+#
+#   uv run python experiments/run.py +experiment=backdoor_cifar10_f10
+#
+# Override the seed with ``federation.seed=N``; sweep with
+# ``--multirun federation.seed=0,1,2,3,4``.
+
+defaults:
+  - dataset: cifar10
+  - partition: dirichlet_alpha_0.5
+  - federation: default
+  - attack: none
+  - _self_
+
+# Where CIFAR-10 (and future datasets) materialise on disk.
+data_root: data/
+
+# Where per-run outputs land. The runner appends
+# ``{experiment}/{config_hash}/seed_{seed}/`` to this.
+results_root: results/
+
+# GPU determinism controls (deterministic kernels, no cuDNN autotuning; TF32
+# stays at the torch defaults). Excluded from the config hash; the effective settings are recorded in
+# each run's manifest. Set false only for throughput comparisons.
+reproducibility:
+  deterministic: true
+
+# Human-readable tag that prefixes every run's output directory.
+# Override in experiment configs.
+experiment: ${attack.kind}_${dataset.name}

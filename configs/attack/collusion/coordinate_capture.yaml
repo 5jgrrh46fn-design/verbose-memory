@@ -1,0 +1,6 @@
+# S4 coordinate capture: colluders submit identical (leader base-attack)
+# values on the top ``top_fraction`` of coordinates of the backdoor direction
+# (leader's poisoned minus clean delta) and their own clean update elsewhere.
+# Enable with: +attack/collusion=coordinate_capture
+strategy: coordinate_capture
+top_fraction: 0.05

@@ -1,0 +1,42 @@
+# Server-rooted-trust-aware (FLTrust-tailored) backdoor. FLTrust judges a
+# client by the cosine between its update and the server's own clean-data
+# update, and normalizes every client's magnitude to the server's before
+# averaging. Magnitude budgets (the lever the norm-bounded adaptive backdoor
+# tunes) are therefore discarded, and a shrunk update buys nothing. The
+# tailored response points the submitted delta almost along the attacker's own
+# clean update (near-maximal cosine -> near-maximal trust) while keeping the
+# backdoor component that is orthogonal to it — the part benign learning does
+# not explain, invisible to a similarity measured against the reference.
+#
+# No constrain-and-scale term: magnitude and per-layer deviation are irrelevant
+# to a magnitude-normalizing filter, so the pure augmented-batch trigger is
+# used and the delivery is done entirely by the direction-aligning manipulator.
+# ``kind: backdoor`` so the ASR evaluator and trigger-aware test loader are
+# built exactly as for the other backdoors.
+
+kind: backdoor
+
+poisoner:
+  _target_: topfed.attacks.data.backdoor.BackdoorPoisoner
+  target_class: 9
+  trigger_size: 6
+  trigger_amplitude: 1.0
+  batch_mode: augment
+  poisoning_rate: 0.5
+
+loss_augmenter: null
+
+# cosine_target fixes the submitted update's cosine to the benign reference.
+# 0.9 sits at or above a typical honest client's cosine to the server update on
+# non-IID data, so the malicious client earns at least a fair share of trust
+# while injecting the orthogonal backdoor. It is the direction-domain analogue
+# of the norm budget and is swept as the attacker's best-response knob.
+update_manipulator:
+  _target_: topfed.attacks.model.adaptive.DirectionAlignedManipulator
+  cosine_target: 0.9
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

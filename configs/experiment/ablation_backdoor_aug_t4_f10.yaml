@@ -1,0 +1,19 @@
+# @package _global_
+# Isolation control: augmented batches alone (trigger left at 4x4) so
+# we can attribute any gain to augment vs trigger size separately from
+# the trigger-5 ablation.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: ablation_backdoor_aug_t4_f10
+
+attack:
+  poisoner:
+    trigger_size: 4
+    batch_mode: augment
+  assignment:
+    fraction: 0.10

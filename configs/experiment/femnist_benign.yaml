@@ -1,0 +1,10 @@
+# @package _global_
+# Benign baseline on FEMNIST (natural per-writer partitions), N=100 / K=10.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: none
+
+experiment: femnist_benign

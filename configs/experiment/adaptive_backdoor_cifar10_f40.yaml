@@ -1,0 +1,18 @@
+# @package _global_
+# Adaptive (defense-aware) backdoor on CIFAR-10, Dirichlet(alpha=0.5),
+# N=100 / K=10, f=40% compromised, norm budget as in the attack config
+# (0.6). Compromise-rate sweep level; run with a +tag= and rescan the budget
+# with ``attack.update_manipulator.target_norm=...``. Sweep seeds with
+# ``--multirun federation.seed=0,1,2,3,4``.
+
+defaults:
+  - override /dataset: cifar10
+  - override /partition: dirichlet_alpha_0.5
+  - override /federation: default
+  - override /attack: adaptive_backdoor
+
+experiment: adaptive_backdoor_cifar10_f40
+
+attack:
+  assignment:
+    fraction: 0.40

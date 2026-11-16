@@ -1,0 +1,4 @@
+kind: natural
+# Seed for the writer -> client selection/ordering. Distinct from
+# federation.seed so the partition is stable across training seeds.
+seed: 0

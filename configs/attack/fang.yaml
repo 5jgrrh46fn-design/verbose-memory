@@ -1,0 +1,23 @@
+# Partial-knowledge attack on the coordinate-wise median and the trimmed mean
+# (Fang et al.): every coordinate is drawn low to high standard deviations
+# from the estimated benign mean, against the benign direction. A single
+# client estimates mean and deviation from clean updates on reference_shards
+# disjoint shards of its own data.
+
+kind: fang
+
+poisoner: null
+loss_augmenter: null
+
+update_manipulator:
+  _target_: topfed.attacks.model.statistical.FangTrimmedMeanManipulator
+  reference_shards: 4
+  low: 3.0
+  high: 4.0
+  seed: 0
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

@@ -1,0 +1,15 @@
+# @package _global_
+# Dirty-label (random label-flip) data poisoning on FEMNIST (natural per-writer
+# partitions), N=100 / K=10, f=10% compromised.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: dirty_label
+
+experiment: femnist_dirty_label_f10
+
+attack:
+  assignment:
+    fraction: 0.10

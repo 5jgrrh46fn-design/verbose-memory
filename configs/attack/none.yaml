@@ -1,0 +1,11 @@
+# Benign baseline: no adversarial clients.
+
+kind: none
+
+poisoner: null
+loss_augmenter: null
+update_manipulator: null
+schedule: null
+
+assignment:
+  fraction: 0.0

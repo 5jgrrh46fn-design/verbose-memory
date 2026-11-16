@@ -1,0 +1,8 @@
+# @package _global_
+# ResNet-18 (CIFAR stem, GroupNorm with 2 groups per layer, 11.2M parameters)
+# in place of the default CIFAR-10 CNN. Optional group: the base config sets no
+# ``model`` key, so existing configs keep their hashes; CIFAR-10 only.
+# Enable with: +experiment=<cifar10 experiment> +model=resnet18_gn
+model:
+  name: resnet18_gn
+  groups: 2

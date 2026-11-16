@@ -1,0 +1,28 @@
+# Label-Consistent backdoor (Turner et al. 2019, adapted for FL). The
+# malicious client perturbs target-class images with PGD against the
+# current global model and stamps the trigger; labels are unchanged.
+# The same trigger geometry as the dirty backdoor is used so ASR is
+# measured by the existing pipeline.
+
+kind: clean_label
+
+poisoner:
+  _target_: topfed.attacks.data.clean_label.CleanLabelPoisoner
+  target_class: 9
+  trigger_size: 6
+  trigger_amplitude: 1.0
+  # PGD eps in normalised input space; ~8/255 in pixel space for the
+  # CIFAR-10 per-channel std (~0.25). 3 steps trade attack strength
+  # against per-batch latency in the FL inner loop.
+  pgd_eps: 0.125
+  pgd_alpha: 0.025
+  pgd_steps: 3
+
+loss_augmenter: null
+update_manipulator: null
+
+schedule:
+  _target_: topfed.attacks.schedule.AlwaysAttack
+
+assignment:
+  fraction: 0.10

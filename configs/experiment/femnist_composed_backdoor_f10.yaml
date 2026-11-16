@@ -1,0 +1,21 @@
+# @package _global_
+# Composed (direction-aligned then norm-bounded) adaptive backdoor on FEMNIST
+# (natural per-writer partitions), N=100 / K=10, f=10% compromised, with
+# FEMNIST's dark corner trigger. Sweep the attacker's knobs with
+# ``attack.update_manipulator.manipulators.0.cosine_target`` and
+# ``attack.update_manipulator.manipulators.1.target_norm``; FEMNIST deltas
+# live on a smaller scale than CIFAR-10's, so probe the budget first.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: composed_backdoor
+
+experiment: femnist_composed_backdoor_f10
+
+attack:
+  assignment:
+    fraction: 0.10
+  poisoner:
+    trigger_amplitude: -5.0

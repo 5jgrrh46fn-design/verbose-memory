@@ -1,0 +1,23 @@
+# @package _global_
+# Bagdasaryan-style backdoor on FEMNIST (natural per-writer partitions),
+# N=100 / K=10, f=10% compromised.
+#
+# FEMNIST is light-background (standardised background ~0.23; ink is the dark
+# tail down to ~-5.7), so the distinct trigger is a DARK corner patch rather
+# than CIFAR's bright +1.0 (which would blend with the background). The
+# poisoner and the ASR evaluation loader both read this amplitude, keeping the
+# train-time and eval-time trigger identical.
+
+defaults:
+  - override /dataset: femnist
+  - override /partition: natural
+  - override /federation: default
+  - override /attack: backdoor
+
+experiment: femnist_backdoor_f10
+
+attack:
+  assignment:
+    fraction: 0.10
+  poisoner:
+    trigger_amplitude: -5.0
